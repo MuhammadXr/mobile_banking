@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_banking/components/text_view.dart';
+import 'package:mobile_banking/ui/auth/sign_in/sign_in_page.dart';
+import 'package:mobile_banking/ui/auth/verify/verify_screen.dart';
 import 'package:mobile_banking/utils/colors.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -149,33 +151,43 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 40)),
           SliverToBoxAdapter(
-            child: Container(
-              height: 60,
-              alignment: Alignment.center,
-              margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: primaryColor),
-              child: const TextView(
-                  text: "Sign in my Account",
-                  fontWeight: FontWeight.w700,
-                  textColor: Colors.white,
-                  textSize: 17,
-                  textAlign: TextAlign.center),
+            child: GestureDetector(
+              onTap: (){
+                openVerify();
+              },
+              child: Container(
+                height: 60,
+                alignment: Alignment.center,
+                margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10), color: primaryColor),
+                child: const TextView(
+                    text: "Sign in my Account",
+                    fontWeight: FontWeight.w700,
+                    textColor: Colors.white,
+                    textSize: 17,
+                    textAlign: TextAlign.center),
+              ),
             ),
           ),
           SliverToBoxAdapter(
-            child: Container(
-              height: 60,
-              alignment: Alignment.center,
-              margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10), color: primaryColor),
-              child: const TextView(
-                  text: "Sign up with Phone Number",
-                  fontWeight: FontWeight.w700,
-                  textColor: Colors.white,
-                  textSize: 17,
-                  textAlign: TextAlign.center),
+            child: GestureDetector(
+              onTap: (){
+                openSignInPage();
+              },
+              child: Container(
+                height: 60,
+                alignment: Alignment.center,
+                margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10), color: primaryColor),
+                child: const TextView(
+                    text: "Sign up with Phone Number",
+                    fontWeight: FontWeight.w700,
+                    textColor: Colors.white,
+                    textSize: 17,
+                    textAlign: TextAlign.center),
+              ),
             ),
           ),
           SliverToBoxAdapter(
@@ -204,5 +216,13 @@ class _SignUpPageState extends State<SignUpPage> {
         ],
       ),
     ));
+  }
+
+  void openVerify() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const VerifyScreen(),));
+  }
+
+  void openSignInPage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const SignInPage(),));
   }
 }

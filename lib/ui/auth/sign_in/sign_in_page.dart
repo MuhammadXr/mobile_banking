@@ -1,10 +1,10 @@
 import 'package:extended_phone_number_input/consts/enums.dart';
 import 'package:extended_phone_number_input/phone_number_input.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import '../../../components/text_view.dart';
 import '../../../utils/colors.dart';
+import '../verify/verify_screen.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -96,18 +96,23 @@ class _SignInPageState extends State<SignInPage> {
                 const SliverToBoxAdapter(child: SizedBox(height: 28)),
                 const SliverToBoxAdapter(child: SizedBox(height: 40)),
                 SliverToBoxAdapter(
-                  child: Container(
-                    height: 60,
-                    alignment: Alignment.center,
-                    margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10), color: primaryColor),
-                    child: const TextView(
-                        text: "Sign up with Phone Number",
-                        fontWeight: FontWeight.w700,
-                        textColor: Colors.white,
-                        textSize: 17,
-                        textAlign: TextAlign.center),
+                  child: GestureDetector(
+                    onTap: (){
+                      openVerify();
+                    },
+                    child: Container(
+                      height: 60,
+                      alignment: Alignment.center,
+                      margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10), color: primaryColor),
+                      child: const TextView(
+                          text: "Sign up with Phone Number",
+                          fontWeight: FontWeight.w700,
+                          textColor: Colors.white,
+                          textSize: 17,
+                          textAlign: TextAlign.center),
+                    ),
                   ),
                 ),
                 SliverToBoxAdapter(
@@ -160,5 +165,8 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ))
     );
+  }
+  void openVerify() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const VerifyScreen(),));
   }
 }
