@@ -3,6 +3,7 @@ import 'package:mobile_banking/components/text_view.dart';
 import 'package:mobile_banking/ui/auth/sign_in/sign_in_page.dart';
 import 'package:mobile_banking/ui/auth/verify/verify_screen.dart';
 import 'package:mobile_banking/utils/colors.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -219,10 +220,10 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void openVerify() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const VerifyScreen(),));
+    Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: const VerifyScreen()));
   }
 
   void openSignInPage() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const SignInPage(),));
+    Navigator.push(context, PageTransition(type: PageTransitionType.topToBottom, child: const SignInPage()));
   }
 }

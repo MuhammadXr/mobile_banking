@@ -1,6 +1,7 @@
 import 'package:extended_phone_number_input/consts/enums.dart';
 import 'package:extended_phone_number_input/phone_number_input.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../../components/text_view.dart';
 import '../../../utils/colors.dart';
@@ -167,6 +168,6 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
   void openVerify() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const VerifyScreen(),));
+    Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: const VerifyScreen()));
   }
 }
