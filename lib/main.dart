@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_banking/ui/auth/sign_in/sign_in_page.dart';
 import 'package:mobile_banking/ui/auth/sign_up/sign_up_page.dart';
 import 'package:mobile_banking/ui/auth/verify/verify_screen.dart';
+import 'package:mobile_banking/ui/splash/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const VerifyScreen(),
+      home: const SplashScreen(),
     );
   }
 }
