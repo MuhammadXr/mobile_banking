@@ -11,36 +11,28 @@ String signUpToJson(SignUp data) => json.encode(data.toJson());
 
 class SignUp {
   SignUp({
-    required this.phone,
-    required this.password,
     required this.firstName,
     required this.lastName,
-    required this.bornDate,
-    required this.gender,
+    required this.phoneNumber,
+    required this.password,
   });
 
-  String phone;
-  String password;
   String firstName;
   String lastName;
-  String bornDate;
-  String gender;
+  String phoneNumber;
+  String password;
 
   factory SignUp.fromJson(Map<String, dynamic> json) => SignUp(
-    phone: json["phone"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
+    phoneNumber: json["phone_number"],
     password: json["password"],
-    firstName: json["first-name"],
-    lastName: json["last-name"],
-    bornDate: json["born-date"],
-    gender: json["gender"],
   );
 
   Map<String, dynamic> toJson() => {
-    "phone": phone,
+    "first_name": firstName,
+    "last_name": lastName,
+    "phone_number": phoneNumber,
     "password": password,
-    "first-name": firstName,
-    "last-name": lastName,
-    "born-date": bornDate,
-    "gender": gender,
   };
 }
