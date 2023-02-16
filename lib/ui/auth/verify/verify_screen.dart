@@ -66,7 +66,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         children: [
                           const TextSpan(
                               text:
-                              'Enter 4-digit Code code we have sent to at '),
+                              'Enter 6-digit Code code we have sent to at '),
                           TextSpan(
                             text: '+234 81 137 335 82.',
                             style: GoogleFonts.getFont(
@@ -210,7 +210,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
 
   void countTime(int countUntil) async {
     timer = 60;
-    while (timer >= 0) {
+    while (timer > 0) {
       await Future.delayed(const Duration(seconds: 1));
       timer--;
       setState(() {});
