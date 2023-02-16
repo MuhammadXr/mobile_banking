@@ -121,21 +121,26 @@ class _SignInPageState extends State<SignInPage> {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 12),
                     child: Row(
-                      children: const [
-                        Expanded(child: SizedBox()),
-                        TextView(
+                      children: [
+                        const Expanded(child: SizedBox()),
+                        const TextView(
                             text: "Already have an account? - ",
                             fontWeight: FontWeight.w400,
                             textColor: primaryColor,
                             textSize: 15,
                             textAlign: TextAlign.center),
-                        TextView(
-                            text: "Sign In",
-                            fontWeight: FontWeight.w700,
-                            textColor: primaryColor,
-                            textSize: 15,
-                            textAlign: TextAlign.center),
-                        Expanded(child: SizedBox())
+                        GestureDetector(
+                          onTap: (){
+                            openSignUpPage();
+                          },
+                          child: const TextView(
+                              text: "Sign Up",
+                              fontWeight: FontWeight.w700,
+                              textColor: Colors.blue,
+                              textSize: 15,
+                              textAlign: TextAlign.center),
+                        ),
+                        const Expanded(child: SizedBox())
                       ],
                     ),
                   ),
@@ -169,6 +174,10 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
   void openVerify() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => const VerifyScreen(),));
+    Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: const VerifyScreen()));
+  }
+
+  void openSignUpPage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));
   }
 }
