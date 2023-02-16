@@ -66,7 +66,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         children: [
                           const TextSpan(
                               text:
-                                  'Enter 4-digit Code code we have sent to at '),
+                              'Enter 4-digit Code code we have sent to at '),
                           TextSpan(
                             text: '+234 81 137 335 82.',
                             style: GoogleFonts.getFont(
