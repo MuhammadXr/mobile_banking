@@ -116,7 +116,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                             textAlign: TextAlign.center,
                             style: GoogleFonts.getFont(
                               'DM Sans',
-                              color: const Color(0xCC4933FF),
+                              color: const Color(0xCCF10202),
                               fontSize: 15,
                             ),
                           ),

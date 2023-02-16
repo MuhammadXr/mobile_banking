@@ -1,3 +1,5 @@
+import 'package:extended_phone_number_input/consts/enums.dart';
+import 'package:extended_phone_number_input/phone_number_input.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_banking/components/text_view.dart';
 import 'package:mobile_banking/ui/auth/sign_in/sign_in_page.dart';
@@ -18,6 +20,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+          appBar: AppBar(),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(
@@ -29,7 +32,7 @@ class _SignUpPageState extends State<SignUpPage> {
             child: SizedBox(
               width: double.infinity,
               child: TextView(
-                  text: "Welcome!",
+                  text: "Sign Up",
                   fontWeight: FontWeight.w700,
                   textColor: primaryColor,
                   textSize: 35,
@@ -77,7 +80,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   color: inputBackgroundColor),
               child: const TextField(
                 decoration: InputDecoration(
-                    hintText: "Email Address", border: InputBorder.none),
+                    hintText: "Second Name", border: InputBorder.none),
                 style: TextStyle(
                     fontWeight: FontWeight.w400,
                     color: inputTextColor,
@@ -86,6 +89,22 @@ class _SignUpPageState extends State<SignUpPage> {
                 maxLines: 1,
                 keyboardType: TextInputType.emailAddress,
               ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 37),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: inputBackgroundColor),
+                child: const PhoneNumberInput(
+                  initialCountry: 'Uz',
+                  locale: 'en',
+                  countryListMode: CountryListMode.dialog,
+                  contactsPickerPosition: ContactsPickerPosition.suffix,
+                  allowPickFromContacts: false,
+                  hint: "123 45 67",
+                )
             ),
           ),
           SliverToBoxAdapter(
@@ -162,27 +181,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10), color: primaryColor),
                 child: const TextView(
-                    text: "Sign in my Account",
-                    fontWeight: FontWeight.w700,
-                    textColor: Colors.white,
-                    textSize: 17,
-                    textAlign: TextAlign.center),
-              ),
-            ),
-          ),
-          SliverToBoxAdapter(
-            child: GestureDetector(
-              onTap: (){
-                openSignInPage();
-              },
-              child: Container(
-                height: 60,
-                alignment: Alignment.center,
-                margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 7),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color: primaryColor),
-                child: const TextView(
-                    text: "Sign up with Phone Number",
+                    text: "Sign up my Account",
                     fontWeight: FontWeight.w700,
                     textColor: Colors.white,
                     textSize: 17,
@@ -194,21 +193,26 @@ class _SignUpPageState extends State<SignUpPage> {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 12),
               child: Row(
-                children: const [
-                  Expanded(child: SizedBox()),
-                  TextView(
+                children: [
+                  const Expanded(child: SizedBox()),
+                  const TextView(
                       text: "Already have an account? - ",
                       fontWeight: FontWeight.w400,
                       textColor: primaryColor,
                       textSize: 15,
                       textAlign: TextAlign.center),
-                  TextView(
-                      text: "Sign In",
-                      fontWeight: FontWeight.w700,
-                      textColor: primaryColor,
-                      textSize: 15,
-                      textAlign: TextAlign.center),
-                  Expanded(child: SizedBox())
+                  GestureDetector(
+                    onTap: (){
+                      openSignInPage();
+                    },
+                    child: const TextView(
+                        text: "Sign In",
+                        fontWeight: FontWeight.w700,
+                        textColor: Colors.blue,
+                        textSize: 15,
+                        textAlign: TextAlign.center),
+                  ),
+                  const Expanded(child: SizedBox())
                 ],
               ),
             ),

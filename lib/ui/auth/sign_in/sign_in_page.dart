@@ -1,6 +1,7 @@
 import 'package:extended_phone_number_input/consts/enums.dart';
 import 'package:extended_phone_number_input/phone_number_input.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_banking/ui/auth/sign_up/sign_up_page.dart';
 
 import '../../../components/text_view.dart';
 import '../../../utils/colors.dart';
@@ -22,6 +23,7 @@ class _SignInPageState extends State<SignInPage> {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
           child: Scaffold(
+            appBar: AppBar(),
             body: CustomScrollView(
               slivers: [
                 const SliverToBoxAdapter(
@@ -119,21 +121,26 @@ class _SignInPageState extends State<SignInPage> {
                   child: Container(
                     margin: const EdgeInsets.symmetric(horizontal: 37, vertical: 12),
                     child: Row(
-                      children: const [
-                        Expanded(child: SizedBox()),
-                        TextView(
+                      children: [
+                        const Expanded(child: SizedBox()),
+                        const TextView(
                             text: "Already have an account? - ",
                             fontWeight: FontWeight.w400,
                             textColor: primaryColor,
                             textSize: 15,
                             textAlign: TextAlign.center),
-                        TextView(
-                            text: "Sign In",
-                            fontWeight: FontWeight.w700,
-                            textColor: primaryColor,
-                            textSize: 15,
-                            textAlign: TextAlign.center),
-                        Expanded(child: SizedBox())
+                        GestureDetector(
+                          onTap: (){
+                            openSignUpPage();
+                          },
+                          child: const TextView(
+                              text: "Sign Up",
+                              fontWeight: FontWeight.w700,
+                              textColor: Colors.blue,
+                              textSize: 15,
+                              textAlign: TextAlign.center),
+                        ),
+                        const Expanded(child: SizedBox())
                       ],
                     ),
                   ),
@@ -168,5 +175,9 @@ class _SignInPageState extends State<SignInPage> {
   }
   void openVerify() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => const VerifyScreen(),));
+  }
+
+  void openSignUpPage() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));
   }
 }
