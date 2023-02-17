@@ -51,6 +51,7 @@ class _SignInPageState extends State<SignInPage> {
                         borderRadius: BorderRadius.circular(10),
                         color: inputBackgroundColor),
                     child: const PhoneNumberInput(
+                      border: InputBorder.none,
                       initialCountry: 'Uz',
                       locale: 'en',
                       countryListMode: CountryListMode.dialog,
