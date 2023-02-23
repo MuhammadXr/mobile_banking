@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_banking/ui/home/home_page.dart';
 import 'package:otp_text_field/otp_field.dart';
 import 'package:otp_text_field/style.dart';
+import 'package:page_transition/page_transition.dart';
 
 class VerifyScreen extends StatefulWidget {
   const VerifyScreen({Key? key}) : super(key: key);
@@ -66,7 +68,7 @@ class _VerifyScreenState extends State<VerifyScreen> {
                         children: [
                           const TextSpan(
                               text:
-                              'Enter 6-digit Code code we have sent to at '),
+                                  'Enter 6-digit Code code we have sent to at '),
                           TextSpan(
                             text: '+234 81 137 335 82.',
                             style: GoogleFonts.getFont(
@@ -96,7 +98,6 @@ class _VerifyScreenState extends State<VerifyScreen> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-
                     children: [
                       Row(
                         mainAxisSize: MainAxisSize.max,
@@ -144,16 +145,17 @@ class _VerifyScreenState extends State<VerifyScreen> {
                     ],
                   ),
                 ),
-                Container(
-                  width: 340,
-                  height: 60,
-                  margin: const EdgeInsets.all(20),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: const Color(0xFF170745),
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Center(
+                GestureDetector(
+                  onTap: (){ openHomePage();},
+                  child: Container(
+                    width: 340,
+                    height: 60,
+                    margin: const EdgeInsets.all(20),
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                      color: const Color(0xFF170745),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     child: Text(
                       'Proceed',
                       textAlign: TextAlign.center,
@@ -215,5 +217,16 @@ class _VerifyScreenState extends State<VerifyScreen> {
       timer--;
       setState(() {});
     }
+  }
+
+  void openHomePage() {
+    Navigator.push(
+      context,
+      PageTransition(
+        alignment: Alignment.center,
+        type: PageTransitionType.scale,
+        child: const HomePage(),
+      ),
+    );
   }
 }

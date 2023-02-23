@@ -101,6 +101,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 child: const PhoneNumberInput(
                   initialCountry: 'Uz',
                   locale: 'en',
+                  errorText: "Error",
                   countryListMode: CountryListMode.dialog,
                   contactsPickerPosition: ContactsPickerPosition.suffix,
                   allowPickFromContacts: false,
@@ -224,7 +225,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void openVerify() {
-    Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: const VerifyScreen()));
+    Navigator.push(context, PageTransition(alignment: Alignment.center,type: PageTransitionType.scale, child: const VerifyScreen(),));
   }
 
   void openSignInPage() {

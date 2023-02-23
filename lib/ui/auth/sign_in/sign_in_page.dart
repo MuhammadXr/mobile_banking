@@ -174,7 +174,7 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
   void openVerify() {
-    Navigator.push(context, PageTransition(type: PageTransitionType.leftToRight, child: const VerifyScreen()));
+    Navigator.push(context, PageTransition(alignment: Alignment.center,type: PageTransitionType.scale, child: const VerifyScreen()));
   }
 
   void openSignUpPage() {
