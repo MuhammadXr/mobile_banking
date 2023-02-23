@@ -21,7 +21,6 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          appBar: AppBar(),
       body: CustomScrollView(
         slivers: [
           const SliverToBoxAdapter(
@@ -99,6 +98,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     borderRadius: BorderRadius.circular(10),
                     color: inputBackgroundColor),
                 child: const PhoneNumberInput(
+                  border: InputBorder.none,
                   initialCountry: 'Uz',
                   locale: 'en',
                   errorText: "Error",

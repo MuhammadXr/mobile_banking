@@ -24,10 +24,10 @@ class _VerifyScreenState extends State<VerifyScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(),
-        body: SafeArea(
-          child: Container(
+      debugShowCheckedModeBanner: false,
+      home: SafeArea(
+        child: Scaffold(
+          body: Container(
             transformAlignment: Alignment.center,
             width: double.infinity,
             height: double.infinity,

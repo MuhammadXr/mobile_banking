@@ -1,39 +1,29 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:mobile_banking/ui/auth/sign_up/sign_up_page.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:mobile_banking/components/text_view.dart';
+import 'package:mobile_banking/utils/colors.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
-  State<SplashScreen> createState() => _SplashScreenState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    Timer(
-        const Duration(seconds: 3),
-        () => {
-        Navigator.pushReplacement(context, PageTransition(type: PageTransitionType.topToBottom, child: const SignUpPage()))
-
-    });
-    super.initState();
-  }
-
+class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: const Color(0xFF170745),
-        alignment: Alignment.center,
-        child: const Text(
-          textAlign: TextAlign.center,
-          "Welcome\nMax_bank",
-          style: TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 48),
+    return const Scaffold(
+      backgroundColor: primaryColor,
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
+        child: Center(
+          child: TextView(
+              text: "GITA\nmobile banking",
+              fontWeight: FontWeight.w700,
+              textColor: Colors.white,
+              textSize: 40,
+              textAlign: TextAlign.center),
         ),
       ),
     );
