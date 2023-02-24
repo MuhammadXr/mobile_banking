@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../utils/colors.dart';
+
 class BankCard extends StatelessWidget {
-  const BankCard({Key? key}) : super(key: key);
+  final int themeIndex;
+  const BankCard({Key? key, required this.themeIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 312,
       height: 168,
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(8),
       decoration: BoxDecoration(
-        color: const Color(0xFF3862F8),
+        color: themeIndex==0? cardColor1:Colors.black,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Stack(

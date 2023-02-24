@@ -1,33 +1,32 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CircleButton extends StatelessWidget {
-  const CircleButton({Key? key}) : super(key: key);
+  final Icon icon;
+  final String text;
+
+  const CircleButton({Key? key, required this.icon, required this.text})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(2),
-      child: Center(
-        child: ClipOval(
+    return Column(
+      children: [
+        ClipOval(
           child: Card(
             elevation: 4,
             shape: const CircleBorder(),
-            child: Container(
-              height: 90,
-              width: 90,
-              padding: const EdgeInsets.all(15),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  Icon(Icons.message),
-                  Text("Send")
-                ],
-              ),
-            ),
+            child: SizedBox(height: 64, width: 64, child: Center(child: icon)),
           ),
         ),
-      ),
+        const SizedBox(height: 4,),
+        Text(
+          text,
+          style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
+              color: Color.fromRGBO(6, 15, 39, 1)),
+        )
+      ],
     );
   }
 }

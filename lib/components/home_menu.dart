@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_banking/components/menu_button_item.dart';
 
 class MenuItem extends StatelessWidget {
   const MenuItem({Key? key}) : super(key: key);
@@ -16,13 +15,6 @@ class MenuItem extends StatelessWidget {
           decoration: const BoxDecoration(color: Colors.white),
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  "Actions",
-                  style: TextStyle(fontSize: 18),
-                ),
-              ),
               Expanded(
                 flex: 1,
                 child: CustomScrollView(
@@ -30,13 +22,13 @@ class MenuItem extends StatelessWidget {
                   slivers: [
                     SliverList(
                       delegate: SliverChildListDelegate(List.of([
-                        CircleButton(),
-                        CircleButton(),
-                        CircleButton(),
-                        CircleButton(),
-                        CircleButton(),
-                        CircleButton(),
-                        CircleButton(),
+                        // CircleButton(),
+                        // CircleButton(),
+                        // CircleButton(),
+                        // CircleButton(),
+                        // CircleButton(),
+                        // CircleButton(),
+                        // CircleButton(),
                       ])),
                     ),
                   ],
