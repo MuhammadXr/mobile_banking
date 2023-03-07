@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_banking/ui/home/home_page.dart';
-import 'package:mobile_banking/ui/splash/splash_page.dart';
+import 'package:mobile_banking/presentation/ui/auth/sign_in/sign_in_page.dart';
+import 'package:mobile_banking/presentation/ui/auth/sign_up/sign_up_page.dart';
+import 'package:mobile_banking/presentation/ui/auth/verify/verify_screen.dart';
+import 'package:mobile_banking/presentation/ui/home/home_page.dart';
+import 'package:mobile_banking/presentation/ui/splash/splash_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,19 +18,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue,),
       home: const HomePage(),
+      routes:{
+        SplashPage.id:(context) => const SplashPage().page,
+        SignInPage.id:(context) => const SignInPage(),
+        SignUpPage.id:(context) => const SignUpPage(),
+        VerifyScreen.id:(context) => const VerifyScreen(),
+        HomePage.id:(context) => const HomePage(),
+      },
     );
   }
 }
